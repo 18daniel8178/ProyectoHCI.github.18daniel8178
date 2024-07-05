@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECNO - Productos</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000; /* Fallback color in case video doesn't load */
+            color: #313131; /* Default text color */
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            filter: blur(10px); /* Agrega el efecto de desenfoque */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-text {
+            color: #fff; /* Color de texto de encabezado */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .product {
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 1rem;
+            color: #ffffff; /* Color de texto de descripción */
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000; /* Fondo color botones */
+            color: #ffffff; /* Color de texto de botones */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            padding: 10px 0;
+            z-index: 2;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; /* Alinea verticalmente los íconos con los enlaces */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        .cart-icon {
+            width: 30px; /* Ajusta el tamaño del icono del carrito */
+            height: 30px;
+            background: url('carrito.png') center/cover no-repeat; /* Añade el icono del carrito */
+            margin-left: 10px; /* Espacio entre el ícono del carrito y el enlace de contacto */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            padding: 10px 0;
+            z-index: 2;
+            text-align: center;
+        }
+
+        
+        .logo:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index1.html" class="logo">TECNO</a>
+            <ul>
+                <li><a href="index1.html">Inicio</a></li>
+                <li><a href="index2.html">Productos</a></li>
+                <li><a href="index3.html">Contacto</a></li>
+                <li><a href="index9.html">Testimonios</a></li>
+                <li><a href="index10.html">Disfruta</a></li>
+
+                <li><a href="index6.html"><img src="carrito.png" alt="Carrito" style="width: 20px; filter: invert(1);"></a></li>
+                <li class="username-display" id="usernameDisplay"></li>
+
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="video-background">
+            <video id="video-bg" autoplay muted loop>
+                <source src="fondo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="content">
+            <div class="hero-text">
+                <h1>Nuestros Productos</h1>
+                <p>Explora nuestra amplia selección de productos de tecnología.</p>
+            </div>
+            <div class="products">
+                <!-- Producto 1: Laptop Gamer -->
+                <div class="product">
+                    <img src="laptopgamer.png" alt="Laptop Gamer">
+                    <h2>Laptop Gamer</h2>
+                    <p>Laptop de alta velocidad diseñada para jugadores exigentes.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 2: Smartphone X -->
+                <div class="product">
+                    <img src="smarthphone.png" alt="Smartphone X">
+                    <h2>Smartphone X</h2>
+                    <p>Último modelo de smartphone con tecnología avanzada.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 3: Monitor Curvo 4K -->
+                <div class="product">
+                    <img src="curvo.png" alt="Monitor Curvo 4K">
+                    <h2>Monitor Curvo 4K</h2>
+                    <p>Monitor de alta resolución ideal para profesionales creativos.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 4: Teléfono Inteligente -->
+                <div class="product">
+                    <img src="inteligente.png" alt="Teléfono Inteligente">
+                    <h2>Teléfono Inteligente</h2>
+                    <p>Teléfono con funciones avanzadas y alta calidad de cámara.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 5: Televisor LED -->
+                <div class="product">
+                    <img src="televisor.png" alt="Televisor LED">
+                    <h2>Televisor LED</h2>
+                    <p>Televisor de última generación con pantalla LED de alta definición.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 6: Memoria RAM -->
+                <div class="product">
+                    <img src="ram.png" alt="Memoria RAM">
+                    <h2>Memoria RAM</h2>
+                    <p>Módulo de memoria RAM de alta velocidad y capacidad.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 7: Auriculares Inalámbricos -->
+                <div class="product">
+                    <img src="auriculares.png" alt="Auriculares Inalámbricos">
+                    <h2>Auriculares Inalámbricos</h2>
+                    <p>Auriculares con conectividad Bluetooth y cancelación de ruido.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 8: Tableta Gráfica -->
+                <div class="product">
+                    <img src="tarjeta.png" alt="Targeta Gráfica">
+                    <h2>Tableta Gráfica</h2>
+                    <p>Tableta diseñada para artistas digitales con sensibilidad a la presión.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 9: Impresora Multifunción -->
+                <div class="product">
+                    <img src="impresora3d2.png" alt="Impresora Multifunción">
+                    <h2>Impresora Multifunción</h2>
+                    <p>Impresora que combina funciones de impresión, escaneo y copiado.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+
+                <!-- Producto 10: Cámara DSLR -->
+                <div class="product">
+                    <img src="camara.png" alt="Cámara DSLR">
+                    <h2>Cámara DSLR</h2>
+                    <p>Cámara réflex digital con alta calidad de imagen y grabación de vídeo.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 11: Teclado Mecánico -->
+                <div class="product">
+                    <img src="teclado.png" alt="Teclado Mecánico">
+                    <h2>Teclado Mecánico</h2>
+                    <p>Teclado diseñado para jugadores con respuesta táctil precisa.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 12: Procesador -->
+                <div class="product">
+                    <img src="procesador.png" alt="Procesador">
+                    <h2>Procesador</h2>
+                    <p>Procesador de alto rendimiento para computadoras de escritorio.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 13: Disco Duro SSD -->
+                <div class="product">
+                    <img src="ssd.png" alt="Disco Duro SSD">
+                    <h2>Disco Duro SSD</h2>
+                    <p>Unidad de estado sólido para almacenamiento rápido y confiable.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 14: Impresora 3D -->
+                <div class="product">
+                    <img src="impresora3d.png" alt="Impresora 3D">
+                    <h2>Impresora 3D</h2>
+                    <p>Impresora que crea objetos tridimensionales a partir de modelos digitales.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 15: Altavoces Bluetooth -->
+                <div class="product">
+                    <img src="altavoces.png" alt="Altavoces Bluetooth">
+                    <h2>Altavoces Bluetooth</h2>
+                    <p>Altavoces portátiles con conectividad inalámbrica y calidad de sonido.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 16: Monitor Gaming -->
+                <div class="product">
+                    <img src="monitorgamer.png" alt="Monitor Gaming">
+                    <h2>Monitor Gaming</h2>
+                    <p>Monitor diseñado para jugadores con alta frecuencia de actualización.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 17: Webcam HD -->
+                <div class="product">
+                    <img src="webcam.png" alt="Webcam HD">
+                    <h2>Webcam HD</h2>
+                    <p>Cámara web con resolución de alta definición para videollamadas.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 18: Power Bank -->
+                <div class="product">
+                    <img src="powerbank.webp" alt="Power Bank">
+                    <h2>Power Bank</h2>
+                    <p>Cargador portátil con capacidad para recargar dispositivos móviles.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 19: Router Wi-Fi -->
+                <div class="product">
+                    <img src="router.png" alt="Router Wi-Fi">
+                    <h2>Router Wi-Fi</h2>
+                    <p>Dispositivo para distribuir señales de internet de alta velocidad.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+                
+                <!-- Producto 20: Mouse Gaming -->
+                <div class="product">
+                    <img src="mouse.png" alt="Mouse Gaming">
+                    <h2>Mouse Gaming</h2>
+                    <p>Mouse ergonómico con botones programables para juegos.</p>
+                    <a href="index6.html" class="btn">Añadir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/simon_23ignacio/?hl=es"target="_blank"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/"  target="_blank"><img src="facebook.png" alt="Facebook"></a>
+            <a href="https://web.whatsapp.com/"target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+        </div>
+    </footer>
+    <script src="json1.js"></script>
+    <script>
+        // Mostrar el nombre de usuario si está logueado
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (loggedInUser) {
+            document.getElementById('usernameDisplay').innerHTML = `<span style="background-color: #ffc107; padding: 5px 10px; border-radius: 5px;">                ${loggedInUser}</span>`;
+        } else {
+            document.getElementById('usernameDisplay').innerHTML = `<a href="index4.html" class="btn">Iniciar Sesión</a>`;
+        }
+    </script>
+</body>
+</html>
